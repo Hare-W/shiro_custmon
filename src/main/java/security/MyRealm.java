@@ -34,7 +34,6 @@ public class MyRealm extends AuthorizingRealm {
             return new SimpleAuthenticationInfo(user.getUsername(),user.getPassword(),"MyRealm");
         }catch (Exception e){
             e.printStackTrace();
-        }finally {
         }
         return null;
     }
