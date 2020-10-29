@@ -7,7 +7,7 @@
     <!--数据库properties-->
     <context:property-placeholder location="jdbc-connection.properties"/>
 
-    <context:component-scan base-package="security"/>
+    <context:component-scan base-package="security,service,utils"/>
 
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="${jdbc.driver}"/>

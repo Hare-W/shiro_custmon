@@ -18,7 +18,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
-import security.BeanTest;
 
 public class ShiroTest {
     public ApplicationContext applicationContext;
@@ -43,7 +42,7 @@ public class ShiroTest {
     @Test
     public void shiroTest(){
         if(!currentSubject.isAuthenticated()){
-            UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken("root","HIKARI");
+            UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken("root","hikari");
             try{
                 currentSubject.login(usernamePasswordToken);
                 log.info("login success");
@@ -54,14 +53,6 @@ public class ShiroTest {
 
     }
 
-    @Test
-    public void test(){
-        for (String name : applicationContext.getBeanDefinitionNames()){
-            System.out.println(name);
-        }
-        BeanTest beanTest = new BeanTest();
-        beanTest.test();
-    }
 
 
 }

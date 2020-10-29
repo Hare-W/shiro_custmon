@@ -13,12 +13,13 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import service.SystemService;
+import utils.SpringContextHolder;
 
 @Component
 public class MyRealm extends AuthorizingRealm {
 
-    @Autowired
-    private UserDao userMapper;
+    private SystemService systemService;
 
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
@@ -27,7 +28,8 @@ public class MyRealm extends AuthorizingRealm {
 
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
-        User user = userMapper.findUserByUsername((String)authenticationToken.getPrincipal());
+        systemService = SpringContextHolder.getBean(SystemService.class);
+        User user = systemService.findUserByUsername((String)authenticationToken.getPrincipal());
         try{
             return new SimpleAuthenticationInfo(user.getUsername(),user.getPassword(),"MyRealm");
         }catch (Exception e){
