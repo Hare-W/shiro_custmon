@@ -32,6 +32,11 @@ public class UserController {
             }catch (AuthenticationException e){
                 resultMap.put("msg","登录失败");
             }
+         //   return resultMap;
+        }
+        if(currentSubject.isPermitted("/root/test"))
+        {
+            resultMap.put("permission","/root/test");
             return resultMap;
         }
         return null;

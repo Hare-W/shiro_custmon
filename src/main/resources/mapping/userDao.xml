@@ -4,10 +4,15 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="dao.UserDao">
     <resultMap id="userMap" type="entity.User">
-        <id property="username" column="username"/>
+        <id property="userId" column="id"/>
+        <result property="username" column="username"/>
         <result property="password" column="password"/>
     </resultMap>
     <select id="findUserByUsername" resultMap="userMap">
-    SELECT username,password FROM t_user WHERE username = #{username}
+    SELECT * FROM sys_user WHERE username = #{username}
   </select>
+    <select id="findUserByUserId" resultMap="userMap">
+    SELECT * FROM sys_user WHERE id = #{userId}
+  </select>
+
 </mapper>

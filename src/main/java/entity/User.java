@@ -1,18 +1,18 @@
 package entity;
 
-public class User {
-    private String userID;
+import java.io.Serializable;
+
+public class User implements Serializable {
+    private String userId;
     private String username;
     private String password;
-    private String userRole;
-    private String userPermission;
 
-    public String getUserID() {
-        return userID;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUserID(String userID) {
-        this.userID = userID;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getUsername() {
@@ -31,30 +31,4 @@ public class User {
         this.password = password;
     }
 
-    public String getUserRole() {
-        return userRole;
-    }
-
-    public void setUserRole(String userRole) {
-        this.userRole = userRole;
-    }
-
-    public String getUserPermission() {
-        return userPermission;
-    }
-
-    public void setUserPermission(String userPermission) {
-        this.userPermission = userPermission;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "userID='" + userID + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", userRole='" + userRole + '\'' +
-                ", userPermission='" + userPermission + '\'' +
-                '}';
-    }
 }
