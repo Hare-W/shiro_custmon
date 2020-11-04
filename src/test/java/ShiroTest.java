@@ -1,9 +1,4 @@
-import dao.UserDao;
-import entity.User;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.SimpleAuthenticationInfo;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.config.IniSecurityManagerFactory;
 import org.apache.shiro.session.Session;
@@ -17,7 +12,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Component;
 
 public class ShiroTest {
     public ApplicationContext applicationContext;
@@ -26,7 +20,7 @@ public class ShiroTest {
     private static final transient Logger log = LoggerFactory.getLogger(ShiroTest.class);
     @Before
     public void initMethod(){
-        applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+        applicationContext = new ClassPathXmlApplicationContext("spring-context.xml");
 
         Factory<SecurityManager> factory = new IniSecurityManagerFactory("classpath:shiro.ini");
         SecurityManager securityManager = factory.getInstance();
