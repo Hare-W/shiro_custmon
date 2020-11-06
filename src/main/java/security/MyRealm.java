@@ -27,7 +27,7 @@ import java.security.Principal;
 @Component
 public class MyRealm extends AuthorizingRealm {
 
-   // private static final Logger logger = LoggerFactory.getLogger(MyRealm.class);
+    private static final Logger logger = LoggerFactory.getLogger(MyRealm.class);
 
     private SystemService systemService;
 
@@ -64,7 +64,7 @@ public class MyRealm extends AuthorizingRealm {
         user.setUsername("root");
         user.setPassword("hikari");
         redisTemplate.opsForValue().set("user_1",user);
-        //logger.info("redis key(user_1) value = " + redisTemplate.opsForValue().get("user_1"));
+        logger.info("redis key(user_1) value = " + redisTemplate.opsForValue().get("user_1").toString());
         User userTest = (User)redisTemplate.opsForValue().get("user_1");
 //
 //        //systemService = SpringContextHolder.getBean(SystemService.class);
